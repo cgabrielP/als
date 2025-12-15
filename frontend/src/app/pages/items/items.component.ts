@@ -14,10 +14,11 @@ export class ItemsComponent implements OnInit {
 
   constructor(private api: ApiService) {}
 
-  ngOnInit() {
-    this.api.getItems().subscribe({
-      next: data => this.items = data,
-      error: err => console.error('Error API', err)
-    });
-  }
+  loadItems() {
+  this.api.getItems().subscribe(data => this.items = data);
+}
+
+ngOnInit() {
+  this.loadItems();
+}
 }
