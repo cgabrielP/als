@@ -1,29 +1,32 @@
-<h2>Crear producto</h2>
+<div class="container">
 
-<form (ngSubmit)="submitProduct()">
+  <div class="card">
+    <h2>Crear producto</h2>
 
-  <div>
-    <label>Nombre del producto</label>
-    <input
-      type="text"
-      [(ngModel)]="productName"
-      name="name"
-      required
-    />
+    <form (ngSubmit)="submitProduct()">
+
+      <label>Nombre del producto</label>
+      <input
+        type="text"
+        [(ngModel)]="productName"
+        name="name"
+        required
+      />
+
+      <label>Imagen</label>
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+      />
+
+      <button type="submit">Guardar</button>
+
+    </form>
   </div>
 
-  <div>
-    <label>Imagen</label>
-    <input
-      type="file"
-      (change)="onFileSelected($event)"
-      accept="image/*"
-    />
-  </div>
+  <hr />
 
-  <button type="submit">Guardar</button>
+  <app-items></app-items>
 
-</form>
-
-<h2>Lista de productos</h2>
-<app-items></app-items>
+</div>
